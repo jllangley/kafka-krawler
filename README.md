@@ -8,7 +8,7 @@
 python3 kafka-krawler.py --bootstrap-server {ip_address}
 ```
 - usage for multiple ip addresses
-  - Put your list of servers to in file "bootstrap_servers.txt"
+  - Put your list of servers into a file named "bootstrap_servers.txt"
   - one server per line.
   ```bash
   python3 kafka-krawler.py
