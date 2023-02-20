@@ -20,15 +20,18 @@ def process_server_topics(server):
             print(server + " - " + topic)
             consumer.subscribe(topics=topic)
             # Write messages from the current topic to a JSON file named after the server and topic
-            messages = consumer.poll(timeout_ms=1000).values()
+            messages = consumer.poll(timeout_ms=10000).values()
 
             if messages:
                 with open(f'{server}_{topic}.json', 'w', encoding='utf-8') as f:
                     for message in messages:
                         for record in message:
-                            value = json.loads(record.value)
-                            if value:
-                                f.write(json.dumps(value, indent=4) + '\n')
+                            try:
+                                value = json.loads(record.value)
+                                if value:
+                                    f.write(json.dumps(value, indent=4) + '\n')
+                            except:
+                                print("Decode Error!!")
     except Exception:
         traceback.print_exc()
 
