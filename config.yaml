@@ -1,0 +1,20 @@
+# Kafka-Krawler Configuration File
+# This is an example YAML configuration file
+
+# List of Kafka bootstrap servers
+bootstrap_servers:
+  - "localhost:9092"
+  - "kafka1.example.com:9092"
+  - "kafka2.example.com:9092"
+
+# Output directory for JSON files
+output_dir: "output"
+
+# Consumer timeout in milliseconds
+timeout_ms: 10000
+
+# Logging level (DEBUG, INFO, WARNING, ERROR)
+log_level: "INFO"
+
+# Maximum number of concurrent workers
+max_workers: 4
